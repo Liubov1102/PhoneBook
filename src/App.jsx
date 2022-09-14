@@ -7,7 +7,6 @@ import { authOperations } from 'redux/auth';
 import  {useAuth } from 'hooks';
 import { SharedLayout } from 'layout/SharedLayout'; 
 
-//const  SharedLayout = lazy(() => import("layout/SharedLayout"));
 const  Home  = lazy(() => import("pages/Home/Home"));
 const  Register  = lazy(() => import("pages/Register/Register"));
 const  Login  = lazy(() => import("pages/Login/Login"));
@@ -17,7 +16,6 @@ export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
-
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
@@ -25,7 +23,7 @@ export const App = () => {
   return isRefreshing ? (
     <h1>Refreshing user...</h1>
   ) : (
-    <Suspense fallback={null}>
+    <Suspense fallback={<h1>Loading...</h1>}>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<PublicRoute component={<Home />} />} />

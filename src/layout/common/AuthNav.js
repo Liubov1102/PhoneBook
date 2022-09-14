@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from './AuthNav.styled';
+import { Link } from 'components/ui/Link'; 
 
 export default function AuthNav() {
   return (

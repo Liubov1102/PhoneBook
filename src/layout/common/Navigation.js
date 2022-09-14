@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from 'hooks';
-import { Link } from './Navigation.styled';
+import { Link } from 'components/ui/Link'; 
 
 const Navigation = () => {
   const { isLoggedIn } = useAuth();

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, Wrapper, Title } from './Home.styled';
+import { Image, Title } from './Home.styled';
+import { Wrapper } from 'components/ui/Wrapper';
 import  telephone  from '../../images/telephone.png';
 
 const Home = () => (

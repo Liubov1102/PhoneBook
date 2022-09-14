@@ -6,7 +6,7 @@ export const Label = styled.label`
   justify-content: center;
   font-weight: 500;
   color: #2a2a2a;
-  margin-top: 8px ;
+  margin-top: 16px ;
 `;
  export const Input = styled.input`
   border: 1px solid #2a2a2a;;
@@ -17,7 +17,7 @@ export const Label = styled.label`
   width: 360px;
   outline: 0;
   margin-top: 8px ;
-  :focus {
-    border: 2px solid #b55b2d;
+  /* :focus {
+    border: 2px solid #b55b2d; */
 }
 `;

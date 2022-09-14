@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import AppBar from 'layout/common/AppBar/AppBar';
-import { Box } from './Layout.styled'; 
+import AppBar from 'layout/common/AppBar';
+import { Box } from './common/Box'; 
 import { Suspense } from 'react';
 
 

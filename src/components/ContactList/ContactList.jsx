@@ -1,28 +1,41 @@
-import { useSelector } from 'react-redux';
-import { getFilter } from 'redux/contacts/filterSlice';
-import { useGetContactsQuery } from 'redux/contacts/contactsSlice';
-import { ContactElement } from "./ContactElement/ContactElement";
-import { List } from "./ContactList.styled";
+
+import { useEffect } from 'react';
+import { useRedux } from 'hooks';
+import { contactsOperations, contactsSelectors } from 'redux/contacts';
+import { List, Item, Button, Icon } from "./ContactList.styled";
 
 export const ContactList = () => {
-const { data: contacts } = useGetContactsQuery();
-  const filter = useSelector(getFilter);
-  const filterContacts = contacts?.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+    const [selector, dispatch] = useRedux();
+  const contacts = selector(contactsSelectors.getAllContacts);
+  const filter = selector(contactsSelectors.getFilter);
+
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, [dispatch]);
+
+  const deleteContactbyId = contactId => {
+    dispatch(contactsOperations.deleteContact(contactId));
+  };
+  const getFilteredContacts = () => {
+    const normilizedFilter = filter.toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normilizedFilter)
+    );
+  };
  
   return (
     <List >
-      {contacts &&
-        filterContacts.map(({ id, name, number }) => (
-        
-          <ContactElement
-            key={id}
-            id={id}
-            name={name}
-            number={number}
-          />
-        ))}
+      {getFilteredContacts().map(({ id, name, number }) => (
+        <Item key={id}>
+         
+            <span>{name} : {number}</span>
+            
+          <Button type="button" onClick={() => deleteContactbyId(id)}>
+            <Icon />
+          </Button>
+        </Item>
+      ))}
     </List>
   )
 };

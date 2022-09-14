@@ -1,6 +1,6 @@
 
-import { LoginForm } from 'components/LoginForm/LoginForm';
-import { Box } from './Login.styled';
+import { LoginForm } from 'components/auth/LoginForm';
+import { Box } from 'components/ui/Box'; 
 
 export default function Login() {
  

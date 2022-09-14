@@ -1,6 +1,6 @@
 
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
-import { Box } from './Register.styled';
+import { RegisterForm } from 'components/auth/RegisterForm';
+import { Box } from 'components/ui/Box';
 
 export default function Register()  {
   

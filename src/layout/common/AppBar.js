@@ -1,8 +1,8 @@
 
-import Navigation from 'layout/common/Navigation/Navigation';
+import Navigation from 'layout/common/Navigation';
 import UserMenu from 'layout/common/UserMenu/UserMenu';
-import AuthNav from 'layout/common/AuthNav/AuthNav';
-import { Header } from './AppBar.styled';
+import AuthNav from 'layout/common/AuthNav';
+import { Header } from './Header'; 
 import { useAuth } from 'hooks';
 
 export default function AppBar() {
